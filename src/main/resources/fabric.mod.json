@@ -1,8 +1,8 @@
 {
 	"schemaVersion": 1,
-	"id": "modid",
+	"id": "immersive-items",
 	"version": "${version}",
-	"name": "Example mod",
+	"name": "Immersive Items",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
 		"Me!"
@@ -12,26 +12,26 @@
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/modid/icon.png",
+	"icon": "assets/immersive-items/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.example.ExampleMod"
+			"gg.rosie.ImmersiveItems"
 		],
 		"client": [
-			"com.example.ExampleModClient"
+			"gg.rosie.ImmersiveItemsClient"
 		]
 	},
 	"mixins": [
-		"modid.mixins.json",
+		"immersive-items.mixins.json",
 		{
-			"config": "modid.client.mixins.json",
+			"config": "immersive-items.client.mixins.json",
 			"environment": "client"
 		}
 	],
 	"depends": {
-		"fabricloader": ">=0.15.0",
-		"minecraft": "~1.20.4",
+		"fabricloader": ">=0.15.7",
+		"minecraft": "~1.20.1",
 		"java": ">=17",
 		"fabric-api": "*"
 	},
