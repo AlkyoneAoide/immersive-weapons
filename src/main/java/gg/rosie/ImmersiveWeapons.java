@@ -31,7 +31,7 @@ public class ImmersiveWeapons implements ModInitializer {
 	// Create immersiveWeapons inventory tab
 	private static final ItemGroup WEAPON_GROUP = FabricItemGroup.builder()
 			.icon(() -> new ItemStack(COPO_SWOD))
-			.displayName(Text.translatable("Immersive Weapons"))
+			.displayName(Text.translatable("itemGroup.immersive-weapons.weapons"))
 			.entries((context, entries) -> {
 				entries.add(COPO_SWOD);
 			})
