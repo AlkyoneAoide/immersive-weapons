@@ -1,13 +1,14 @@
 package gg.rosie;
 
+import gg.rosie.items.Copo_Material;
 import gg.rosie.items.Copo_Swod;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ToolItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
@@ -23,9 +24,9 @@ public class ImmersiveWeapons implements ModInitializer {
 
 	// Creating a new item
 	// Registering the item when the game is loaded
-	public static final Item COPO_SWOD = Registry.register(Registries.ITEM,
+	public static final ToolItem COPO_SWOD = Registry.register(Registries.ITEM,
 			new Identifier("immersive-weapons", "copo_swod"),
-			new Copo_Swod(new FabricItemSettings().maxCount(1)));
+			new Copo_Swod(Copo_Material.INSTANCE, 500, 1.6f, new FabricItemSettings().maxCount(1)));
 
 	// Create immersiveWeapons inventory tab
 	private static final ItemGroup WEAPON_GROUP = FabricItemGroup.builder()
