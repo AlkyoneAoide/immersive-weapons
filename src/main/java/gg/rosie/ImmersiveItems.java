@@ -1,11 +1,16 @@
 package gg.rosie;
 
+import gg.rosie.items.Copo_Swod;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +25,17 @@ public class ImmersiveItems implements ModInitializer {
 	//Registering the item when the game is loaded
 	public static final Item COPO_SWOD =
 			Registry.register(Registries.ITEM, new Identifier("immersive-items", "copo_swod"),
-			new Item(new FabricItemSettings()));
+					new Copo_Swod(new FabricItemSettings().maxCount(1)));
+
+	//Create immersiveItems inventory tab
+	private static final ItemGroup WEAPON_GROUP = FabricItemGroup.builder()
+			.icon(() -> new ItemStack(COPO_SWOD))
+			.displayName(Text.translatable("Immersive Weapons"))
+			.entries((context, entries) -> {
+				entries.add(COPO_SWOD);
+			})
+			.build();
+
 
 	@Override
 	public void onInitialize() {
@@ -30,6 +45,7 @@ public class ImmersiveItems implements ModInitializer {
 
 		LOGGER.info("Hello Fabric world!");
 
-		//Registering the item when the game is loaded
+		//Register item group when the game is loaded
+		Registry.register(Registries.ITEM_GROUP, new Identifier("immersive-weapons", "weapons"), WEAPON_GROUP);
 	}
 }
