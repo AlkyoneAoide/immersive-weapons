@@ -1,6 +1,6 @@
 package gg.rosie;
 
-import gg.rosie.items.Copo_Material;
+import gg.rosie.materials.Copo_Material;
 import gg.rosie.items.Copo_Swod;
 import net.fabricmc.api.ModInitializer;
 
@@ -26,7 +26,7 @@ public class ImmersiveWeapons implements ModInitializer {
 	// Registering the item when the game is loaded
 	public static final ToolItem COPO_SWOD = Registry.register(Registries.ITEM,
 			new Identifier("immersive-weapons", "copo_swod"),
-			new Copo_Swod(Copo_Material.INSTANCE, 500, 1.6f, new FabricItemSettings().maxCount(1)));
+			new Copo_Swod(Copo_Material.INSTANCE, 0, -2.4f, new FabricItemSettings().maxCount(1)));
 
 	// Create immersiveWeapons inventory tab
 	private static final ItemGroup WEAPON_GROUP = FabricItemGroup.builder()
