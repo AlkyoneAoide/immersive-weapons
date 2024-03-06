@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "immersive-items:item/copo_swod"
+    "layer0": "immersive-weapons:item/copo_swod"
   }
 }

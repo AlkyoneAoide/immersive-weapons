@@ -15,19 +15,19 @@ import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ImmersiveItems implements ModInitializer {
+public class ImmersiveWeapons implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
-    public static final Logger LOGGER = LoggerFactory.getLogger("immersive-items");
+	public static final Logger LOGGER = LoggerFactory.getLogger("immersive-weapons");
 
-	//Creating a new item
-	//Registering the item when the game is loaded
-	public static final Item COPO_SWOD =
-			Registry.register(Registries.ITEM, new Identifier("immersive-items", "copo_swod"),
-					new Copo_Swod(new FabricItemSettings().maxCount(1)));
+	// Creating a new item
+	// Registering the item when the game is loaded
+	public static final Item COPO_SWOD = Registry.register(Registries.ITEM,
+			new Identifier("immersive-weapons", "copo_swod"),
+			new Copo_Swod(new FabricItemSettings().maxCount(1)));
 
-	//Create immersiveItems inventory tab
+	// Create immersiveWeapons inventory tab
 	private static final ItemGroup WEAPON_GROUP = FabricItemGroup.builder()
 			.icon(() -> new ItemStack(COPO_SWOD))
 			.displayName(Text.translatable("Immersive Weapons"))
@@ -35,7 +35,6 @@ public class ImmersiveItems implements ModInitializer {
 				entries.add(COPO_SWOD);
 			})
 			.build();
-
 
 	@Override
 	public void onInitialize() {
@@ -45,7 +44,7 @@ public class ImmersiveItems implements ModInitializer {
 
 		LOGGER.info("Hello Fabric world!");
 
-		//Register item group when the game is loaded
+		// Register item group when the game is loaded
 		Registry.register(Registries.ITEM_GROUP, new Identifier("immersive-weapons", "weapons"), WEAPON_GROUP);
 	}
 }
