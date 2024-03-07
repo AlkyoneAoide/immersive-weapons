@@ -7,7 +7,7 @@ import net.minecraft.recipe.Ingredient;
 public class Copper_Material implements ToolMaterial {
 	@Override
 	public int getDurability() {
-		return 175;
+		return 100;
 	}
 
 	@Override
