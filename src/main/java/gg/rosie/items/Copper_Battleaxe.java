@@ -18,7 +18,7 @@ public class Copper_Battleaxe extends AxeItem {
 
 	@Override
 	public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-		if (target.getRecentDamageSource().isCritical())
+		//if (target.getRecentDamageSource().isCritical())
 			if (attacker.getWorld().isRaining())
 				if (RANDOM.nextInt(10) < 2) {
 					World world = target.getWorld();

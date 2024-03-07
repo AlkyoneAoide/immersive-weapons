@@ -1,15 +1,27 @@
 package gg.rosie.mixin;
 
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @Mixin(PlayerEntity.class)
-public class PlayerEntityMixin {
-	@ModifyVariable(method = "attack(Lnet/minecraft/entity/Entity;)V", at = @At("STORE"), ordinal = 2)
-	public boolean attack(boolean value) {
-		System.out.println("Crit prevented(?)");
-		return false;
+public abstract class PlayerEntityMixin extends LivingEntityMixin {
+	PlayerEntityMixin(EntityType<?> type, World world) {
+		super(type, world);
+	}
+
+	@ModifyVariable(method = "attack", at = @At("STORE"), ordinal = 2)
+	private boolean attack$bl3(boolean bl3) {
+		boolean bl = this.isCritical();
+		if (bl) {
+			bl3 = true;
+		} else if (bl3) {
+			this.setCritical(true);
+		}
+
+		return bl3;
 	}
 }
