@@ -9,8 +9,6 @@ import net.minecraft.item.ToolMaterial;
 import net.minecraft.world.World;
 import java.util.Random;
 
-import com.hamusuke.criticalib.invoker.LivingEntityInvoker;
-
 public class Copper_Battleaxe extends AxeItem {
 	private static final Random RANDOM = new Random();
 
@@ -20,7 +18,7 @@ public class Copper_Battleaxe extends AxeItem {
 
 	@Override
 	public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-		if (target.getRecentDamageSource() instanceof LivingEntityInvoker invoker && invoker.isCritical())
+		if (target.getRecentDamageSource().isCritical())
 			if (attacker.getWorld().isRaining())
 				if (RANDOM.nextInt(10) < 2) {
 					World world = target.getWorld();
