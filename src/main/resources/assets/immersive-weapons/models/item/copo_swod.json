@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "immersive-weapons:item/CopperBattleAxe"
+    "layer0": "immersive-weapons:item/copper_battleaxe"
   }
 }
