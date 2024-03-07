@@ -4,7 +4,7 @@ import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
-public class Copo_Material implements ToolMaterial {
+public class Copper_Material implements ToolMaterial {
 	@Override
 	public int getDurability() {
 		return 175;
@@ -35,5 +35,5 @@ public class Copo_Material implements ToolMaterial {
 		return Ingredient.ofItems(Items.COPPER_INGOT);
 	}
 
-	public static final Copo_Material INSTANCE = new Copo_Material();
+	public static final Copper_Material INSTANCE = new Copper_Material();
 }
