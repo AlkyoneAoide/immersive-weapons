@@ -21,6 +21,9 @@ public class Copper_Battleaxe extends AxeItem {
 	@Override
 	public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
 
+		System.out.println("target crit state: " + ((LivingEntityInvoker) target).isCritical());
+		System.out.println("attacker crit state: " + ((LivingEntityInvoker) attacker).isCritical());
+
 		if (((LivingEntityInvoker) target).isCritical()) {
 			System.out.println("target crit");
 			// if (attacker.getWorld().isRaining()) {

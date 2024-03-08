@@ -32,6 +32,7 @@ public abstract class LivingEntityMixin extends Entity implements LivingEntityIn
 
 	@Override
 	public void setCritical(boolean flag) {
+		System.out.println("Setting crit state to: " + flag);
 		this.crit = flag;
 
 		if (!this.getWorld().isClient()) {
@@ -43,6 +44,7 @@ public abstract class LivingEntityMixin extends Entity implements LivingEntityIn
 
 	@Override
 	public boolean isCritical() {
+		System.out.println("Getting crit state " + this.crit);
 		return this.crit;
 	}
 }
