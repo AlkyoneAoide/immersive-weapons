@@ -13,8 +13,10 @@ public abstract class PlayerEntityMixin extends LivingEntityMixin {
 		super(type, world);
 	}
 
-	@ModifyVariable(method = "attack", at = @At("STORE"), ordinal = 2)
-	private boolean attack$bl3(boolean bl3) {
+	@ModifyVariable(method = "attack", at = @At(value = "STORE", ordinal = 1), ordinal = 2)
+	private boolean attack(boolean bl3) {
+		bl3 = bl3 && !this.isSprinting();
+
 		boolean bl = this.isCritical();
 		if (bl) {
 			bl3 = true;

@@ -1,11 +1,14 @@
 {
 	"required": true,
+	"minVersion": "0.8",
 	"package": "gg.rosie.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"PlayerEntityMixin",
-		"LivingEntityMixin"
+		"LivingEntityMixin",
+		"PlayerEntityMixin"
 	],
+	"client": [],
+	"server": [],
 	"injectors": {
 		"defaultRequire": 1
 	}

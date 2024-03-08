@@ -23,8 +23,13 @@
 		]
 	},
 	"mixins": [
-		"immersive-weapons.mixins.json",
+		"immersive-weapons.mixins.json"
 	],
+	"custom": {
+		"loom:injected_interfaces": {
+			"net/minecraft/class_1309": ["gg/rosie/invoker/LivingEntityInvoker"]
+		}
+	},
 	"depends": {
 		"fabricloader": ">=0.15.7",
 		"minecraft": "~1.20.1",
