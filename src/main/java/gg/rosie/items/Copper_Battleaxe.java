@@ -20,14 +20,12 @@ public class Copper_Battleaxe extends AxeItem {
 
 	@Override
 	public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+		boolean hasCrit = ((LivingEntityInvoker) attacker).checkAndSetCritical();
 
-		System.out.println("target crit state: " + ((LivingEntityInvoker) target).isCritical());
-		System.out.println("attacker crit state: " + ((LivingEntityInvoker) attacker).isCritical());
-
-		if (((LivingEntityInvoker) target).isCritical()) {
-			System.out.println("target crit");
-			// if (attacker.getWorld().isRaining()) {
-			// if (RANDOM.nextInt(10) < 2) {
+		System.out.println(hasCrit);
+		if (hasCrit) {
+			if (attacker.getWorld().isRaining()) {
+			if (RANDOM.nextInt(10) < 4) {
 			World world = target.getWorld();
 			int x = target.getBlockX();
 			int y = target.getBlockY();
@@ -35,16 +33,8 @@ public class Copper_Battleaxe extends AxeItem {
 			LightningEntity bolt = new LightningEntity(EntityType.LIGHTNING_BOLT, world);
 			bolt.setPos(x, y, z);
 			world.spawnEntity(bolt);
-			// }
-			// }
-		} else {
-			System.out.println("target not crit");
-		}
-
-		if (((LivingEntityInvoker) attacker).isCritical()) {
-			System.out.println("attacker crit");
-		} else {
-			System.out.println("attacker not crit");
+			}
+			}
 		}
 
 		return super.postHit(stack, target, attacker);

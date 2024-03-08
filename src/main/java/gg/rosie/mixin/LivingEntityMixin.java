@@ -11,12 +11,14 @@ import net.minecraft.network.PacketByteBuf;
 import net.minecraft.network.packet.s2c.play.CustomPayloadS2CPacket;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity implements LivingEntityInvoker {
+	@Unique
 	private boolean crit;
 
 	LivingEntityMixin(EntityType<?> type, World world) {
@@ -32,7 +34,9 @@ public abstract class LivingEntityMixin extends Entity implements LivingEntityIn
 
 	@Override
 	public void setCritical(boolean flag) {
-		System.out.println("Setting crit state to: " + flag);
+		if(this.crit)
+			flag = true;
+
 		this.crit = flag;
 
 		if (!this.getWorld().isClient()) {
@@ -43,8 +47,9 @@ public abstract class LivingEntityMixin extends Entity implements LivingEntityIn
 	}
 
 	@Override
-	public boolean isCritical() {
-		System.out.println("Getting crit state " + this.crit);
-		return this.crit;
+	public boolean checkAndSetCritical() {
+		boolean result = this.crit;
+		this.crit = false;
+		return result;
 	}
 }
