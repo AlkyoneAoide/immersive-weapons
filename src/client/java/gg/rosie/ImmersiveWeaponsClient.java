@@ -1,7 +1,7 @@
 package gg.rosie;
 
 import gg.rosie.network.SyncCritFlagPacket;
-import gg.rosie.invoker.LivingEntityInvoker;
+import gg.rosie.interfaces.ILivingEntityMixin;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
@@ -16,7 +16,7 @@ public class ImmersiveWeaponsClient implements ClientModInitializer {
 				(client, handler, buf, responseSender) -> {
 					SyncCritFlagPacket packet = new SyncCritFlagPacket(buf);
 					if (client.world != null && client.world
-							.getEntityById(packet.getEntityId()) instanceof LivingEntityInvoker invoker) {
+							.getEntityById(packet.getEntityId()) instanceof ILivingEntityMixin invoker) {
 						invoker.setCritical(packet.getFlag());
 					}
 				});

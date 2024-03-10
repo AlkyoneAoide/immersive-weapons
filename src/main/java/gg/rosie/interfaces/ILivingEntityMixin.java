@@ -1,6 +1,6 @@
-package gg.rosie.invoker;
+package gg.rosie.interfaces;
 
-public interface LivingEntityInvoker {
+public interface ILivingEntityMixin {
 	void setCritical(boolean flag);
 
 	boolean checkAndSetCritical();

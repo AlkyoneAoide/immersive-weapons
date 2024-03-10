@@ -1,6 +1,5 @@
 package gg.rosie.mixin;
 
-import gg.rosie.invoker.LivingEntityInvoker;
 import gg.rosie.network.SyncCritFlagPacket;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.minecraft.entity.Entity;
@@ -17,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
-public abstract class LivingEntityMixin extends Entity implements LivingEntityInvoker {
+public abstract class LivingEntityMixin extends Entity implements gg.rosie.interfaces.ILivingEntityMixin {
 	@Unique
 	private boolean crit;
 
@@ -27,8 +26,8 @@ public abstract class LivingEntityMixin extends Entity implements LivingEntityIn
 
 	@Inject(method = "damage", at = @At("RETURN"))
 	private void damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
-		if (source.getAttacker() instanceof LivingEntityInvoker livingEntityInvoker) {
-			livingEntityInvoker.setCritical(false);
+		if (source.getAttacker() instanceof gg.rosie.interfaces.ILivingEntityMixin ILivingEntityMixin) {
+			ILivingEntityMixin.setCritical(false);
 		}
 	}
 

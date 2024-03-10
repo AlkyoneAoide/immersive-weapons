@@ -9,7 +9,7 @@ import net.minecraft.item.ToolMaterial;
 import net.minecraft.world.World;
 import java.util.Random;
 
-import gg.rosie.invoker.LivingEntityInvoker;
+import gg.rosie.interfaces.ILivingEntityMixin;
 
 public class Copper_Battleaxe extends AxeItem {
 	private static final Random RANDOM = new Random();
@@ -20,7 +20,7 @@ public class Copper_Battleaxe extends AxeItem {
 
 	@Override
 	public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-		boolean hasCrit = ((LivingEntityInvoker) attacker).checkAndSetCritical();
+		boolean hasCrit = ((ILivingEntityMixin) attacker).checkAndSetCritical();
 
 		System.out.println(hasCrit);
 		if (hasCrit) {
