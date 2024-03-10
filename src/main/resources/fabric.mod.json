@@ -27,7 +27,8 @@
 	],
 	"custom": {
 		"loom:injected_interfaces": {
-			"net/minecraft/class_1309": ["gg/rosie/invoker/LivingEntityInvoker"]
+			"net/minecraft/class_1309": ["gg/rosie/interfaces/ILivingEntityMixin"],
+			"net/minecraft/class_1297": ["gg/rosie/interfaces/IEntityMixin"]
 		}
 	},
 	"depends": {
