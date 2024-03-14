@@ -47,6 +47,8 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api-deprecated:${project.fabric_version}"
 
 	modImplementation fabricApi.module("fabric-networking-api-v1", "${project.fabric_version}")
+
+	modImplementation "gg.rosie.damagehelper:damagehelper:1.0.0"
 }
 
 processResources {
