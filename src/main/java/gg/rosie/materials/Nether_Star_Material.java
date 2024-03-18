@@ -7,12 +7,12 @@ import net.minecraft.recipe.Ingredient;
 public class Nether_Star_Material implements ToolMaterial {
     @Override
     public int getDurability() {
-        return 100;
+        return 1000;
     }
 
     @Override
     public float getMiningSpeedMultiplier() {
-        return 5.0f;
+        return 10.0f;
     }
 
     @Override
@@ -22,12 +22,12 @@ public class Nether_Star_Material implements ToolMaterial {
 
     @Override
     public int getMiningLevel() {
-        return 2;
+        return 4;
     }
 
     @Override
     public int getEnchantability() {
-        return 15;
+        return 20;
     }
 
     @Override

@@ -26,7 +26,7 @@ public class ImmersiveWeapons implements ModInitializer {
 
 	public static final ToolItem LEACHING_SCYTHE = Registry.register(Registries.ITEM,
 			new Identifier("immersive-weapons", "leaching_scythe"),
-			new Leaching_Scythe(Nether_Star_Material.INSTANCE, 2, -3.2f, new FabricItemSettings().maxCount(1)));
+			new Leaching_Scythe(Nether_Star_Material.INSTANCE, 0, -1.0f, new FabricItemSettings().maxCount(1)));
 
 
 	// Create immersiveWeapons inventory tab
