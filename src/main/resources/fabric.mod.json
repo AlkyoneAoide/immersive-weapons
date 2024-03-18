@@ -3,13 +3,14 @@
 	"id": "immersive-weapons",
 	"version": "${version}",
 	"name": "Immersive Weapons",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Adds new weapons :)",
 	"authors": [
-		"Me!"
+		"Shammrocks",
+		"AlkyoneAoide"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://github.com/AlkyoneAoide/immersive-weapons",
+		"sources": "https://github.com/AlkyoneAoide/immersive-weapons"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/immersive-weapons/icon.png",
@@ -33,6 +34,6 @@
 		"minecraft": "~1.20.1",
 		"java": ">=17",
 		"fabric-api": "*",
-		"damagehelper": ">=1.0.0"
+		"damagehelper": ">=0.1.0"
 	}
 }
