@@ -2,6 +2,8 @@ package gg.rosie.items;
 
 import java.util.Random;
 
+import gg.rosie.DamageHelper;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
@@ -11,8 +13,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.world.World;
 
-import gg.rosie.CustomItemCrits;
-
 public class Copper_Battleaxe extends AxeItem {
 	private static final Random RANDOM = new Random();
 
@@ -20,7 +20,11 @@ public class Copper_Battleaxe extends AxeItem {
 
 	public Copper_Battleaxe(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
 		super(material, attackDamage, attackSpeed, settings);
-		CustomItemCrits.add("immersive-weapons:copper_battleaxe", (source, amount) -> {
+		DamageHelper.ItemCrits.add("immersive-weapons:copper_battleaxe", (source, amount) -> {
+			if (source.getAttacker() == null || source.getSource() == null) {
+				return;
+			}
+
 			if (source.getAttacker().getWorld().isRaining()) {
 				if (RANDOM.nextInt(10) < 4) {
 					Entity target = source.getSource();
@@ -38,15 +42,15 @@ public class Copper_Battleaxe extends AxeItem {
 		});
 	}
 
-	private void updateSelectionStatus(boolean flag) {
+	private void updateSelectionStatus(boolean flag, int holdingEntityId) {
 		if (isSelected == flag) {
 			return;
 		}
 
 		if (flag) {
-			// DamageHelper.Immunity.add(id, minecraft:lightning_bolt);
+			DamageHelper.Immunity.add(holdingEntityId, "minecraft:lightning_bolt");
 		} else {
-			// DamageHelper.Immunity.remove(id, minecraft:lightning_bolt);
+			DamageHelper.Immunity.remove(holdingEntityId, "minecraft:lightning_bolt");
 		}
 
 		isSelected = flag;
@@ -55,17 +59,16 @@ public class Copper_Battleaxe extends AxeItem {
 	@Override
 	public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
 		if (!world.isClient) {
-			if (entity instanceof PlayerEntity) {
-				PlayerEntity player = (PlayerEntity) entity;
+			if (entity instanceof PlayerEntity player) {
 
-				for (ItemStack handItem : player.getHandItems()) {
+                for (ItemStack handItem : player.getHandItems()) {
 					if (handItem.equals(stack)) {
-						updateSelectionStatus(true);
+						updateSelectionStatus(true, entity.getId());
 						return;
 					}
 				}
 
-				updateSelectionStatus(false);
+				updateSelectionStatus(false, entity.getId());
 			}
 		}
 	}
