@@ -2,7 +2,6 @@ package gg.rosie.items;
 
 import gg.rosie.DamageHelper;
 
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.HoeItem;
