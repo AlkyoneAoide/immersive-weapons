@@ -2,8 +2,11 @@ package gg.rosie.items;
 
 import gg.rosie.DamageHelper;
 
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.HoeItem;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 
 import java.util.Random;
@@ -26,5 +29,17 @@ public class Leaching_Scythe extends HoeItem {
                 }
             }
         });
+    }
+
+    @Override
+    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        boolean result = super.postHit(stack, target, attacker);
+
+        if (!target.isAlive() && PlayerEntity.class.isAssignableFrom(target.getClass())) {
+            DamageHelper.PlayerHealth.setPlayerHealth(target, DamageHelper.PlayerHealth.getPlayerHealthModifier(target) - 2);
+            DamageHelper.PlayerHealth.setPlayerHealth(attacker, DamageHelper.PlayerHealth.getPlayerHealthModifier(attacker) + 2);
+        }
+
+        return result;
     }
 }
