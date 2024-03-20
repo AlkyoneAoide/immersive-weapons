@@ -37,7 +37,7 @@ public class Leaching_Scythe extends HoeItem {
         if (attacker.getWorld().isNight() &&
                 !target.isAlive() &&
                 PlayerEntity.class.isAssignableFrom(target.getClass()) &&
-                RANDOM.nextInt(10) < 2) {
+                RANDOM.nextDouble() < attacker.getWorld().getMoonSize()){
             DamageHelper.PlayerHealth.setPlayerHealth(target, DamageHelper.PlayerHealth.getPlayerHealthModifier(target) - 2);
             DamageHelper.PlayerHealth.setPlayerHealth(attacker, DamageHelper.PlayerHealth.getPlayerHealthModifier(attacker) + 2);
         }
