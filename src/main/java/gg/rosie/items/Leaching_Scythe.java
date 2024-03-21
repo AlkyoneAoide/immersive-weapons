@@ -23,7 +23,6 @@ public class Leaching_Scythe extends HoeItem {
             if (source.getAttacker().getWorld().isNight()) {
                 if (RANDOM.nextInt(10) < 6) {
                     LivingEntity user = (LivingEntity) source.getAttacker();
-
                     user.setHealth((user.getHealth() + amount/4));
                 }
             }

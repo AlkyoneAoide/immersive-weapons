@@ -1,10 +1,12 @@
 package gg.rosie;
 
+import gg.rosie.items.Soul_Claymore;
 import gg.rosie.materials.Copper_Material;
 import gg.rosie.items.Copper_Battleaxe;
 import gg.rosie.materials.Nether_Star_Material;
 import gg.rosie.items.Leaching_Scythe;
 
+import gg.rosie.materials.Soul_Glass_Material;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -28,6 +30,10 @@ public class ImmersiveWeapons implements ModInitializer {
 			new Identifier("immersive-weapons", "leaching_scythe"),
 			new Leaching_Scythe(Nether_Star_Material.INSTANCE, 0, -1.0f, new FabricItemSettings().maxCount(1)));
 
+	public static final ToolItem SOUL_CLAYMORE = Registry.register(Registries.ITEM,
+			new Identifier("immersive-weapons", "soul_claymore"),
+			new Soul_Claymore(Soul_Glass_Material.INSTANCE, 0, -1.0f, new FabricItemSettings().maxCount(1)));
+
 
 	// Create immersiveWeapons inventory tab
 	private static final ItemGroup WEAPON_GROUP = FabricItemGroup.builder()
@@ -36,6 +42,7 @@ public class ImmersiveWeapons implements ModInitializer {
 			.entries((context, entries) -> {
 				entries.add(COPPER_BATTLEAXE);
 				entries.add(LEACHING_SCYTHE);
+				entries.add(SOUL_CLAYMORE);
 			})
 			.build();
 

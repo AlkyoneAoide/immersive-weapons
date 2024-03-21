@@ -27,6 +27,8 @@ public class Copper_Battleaxe extends AxeItem {
 
 			if (source.getAttacker().getWorld().isRaining()) {
 				if (RANDOM.nextInt(10) < 4) {
+
+					//TODO: Needs to be the entity being attacked not the attacker
 					Entity target = source.getSource();
 					World targetWorld = target.getWorld();
 
