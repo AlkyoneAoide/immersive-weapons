@@ -15,15 +15,15 @@ public class Leaching_Scythe extends HoeItem {
     private static final Random RANDOM = new Random();
     public Leaching_Scythe(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
-        DamageHelper.ItemCrits.add("immersive-weapons:leaching_scythe", (source, amount) -> {
-            if (source.getAttacker() == null) {
+        DamageHelper.ItemCrits.add("immersive-weapons:leaching_scythe", (source, amount, attacker, target) -> {
+            if (attacker == null) {
                 return;
             }
 
-            if (source.getAttacker().getWorld().isNight()) {
+            if (attacker.getWorld().isNight()) {
                 if (RANDOM.nextInt(10) < 6) {
-                    LivingEntity user = (LivingEntity) source.getAttacker();
-                    user.setHealth((user.getHealth() + amount/4));
+                    LivingEntity attackerAsLivingEntity = (LivingEntity) attacker;
+                    attackerAsLivingEntity.setHealth((attackerAsLivingEntity.getHealth() + amount/4));
                 }
             }
         });

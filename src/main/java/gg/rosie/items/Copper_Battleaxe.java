@@ -20,16 +20,13 @@ public class Copper_Battleaxe extends AxeItem {
 
 	public Copper_Battleaxe(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
 		super(material, attackDamage, attackSpeed, settings);
-		DamageHelper.ItemCrits.add("immersive-weapons:copper_battleaxe", (source, amount) -> {
-			if (source.getAttacker() == null || source.getSource() == null) {
+		DamageHelper.ItemCrits.add("immersive-weapons:copper_battleaxe", (source, amount, attacker, target) -> {
+			if (attacker == null || target == null) {
 				return;
 			}
 
-			if (source.getAttacker().getWorld().isRaining()) {
+			if (attacker.getWorld().isRaining()) {
 				if (RANDOM.nextInt(10) < 4) {
-
-					//TODO: Needs to be the entity being attacked not the attacker
-					Entity target = source.getSource();
 					World targetWorld = target.getWorld();
 
 					int x = target.getBlockX();
