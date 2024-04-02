@@ -2,8 +2,8 @@
 	"itemGroup.immersive-weapons.weapons": "Immersive Weapons",
 
 	"item.immersive-weapons.copper_battleaxe": "Copper Battle Axe",
-
 	"item.immersive-weapons.leaching_scythe": "Leaching Scythe",
+	"item.immersive-weapons.soul_claymore": "Soul Claymore",
 
-	"item.immersive-weapons.soul_claymore": "Soul Claymore"
+	"block.immersive-weapons.soul_vitric": "Soul Vitric"
 }
