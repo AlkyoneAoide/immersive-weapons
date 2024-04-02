@@ -20,6 +20,7 @@
 			"gg.rosie.ImmersiveWeapons"
 		],
 		"client": [
+			"gg.rosie.ImmersiveWeaponsClient"
 		]
 	},
 	"mixins": [
