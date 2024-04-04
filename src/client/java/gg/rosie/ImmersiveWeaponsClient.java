@@ -1,5 +1,6 @@
 package gg.rosie;
 
+import gg.rosie.registry.ImmersiveWeaponsBlocks;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -10,6 +11,6 @@ import net.minecraft.client.render.RenderLayer;
 public class ImmersiveWeaponsClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-        BlockRenderLayerMap.INSTANCE.putBlock(ImmersiveWeapons.SOUL_VITRIC, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ImmersiveWeaponsBlocks.getBlock("soul_vitric"), RenderLayer.getTranslucent());
     }
 }
