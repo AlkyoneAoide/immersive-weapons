@@ -44,9 +44,7 @@ public class ImmersiveWeaponsItems {
 
     public static ArrayList<Item> getItems() {
         ArrayList<Item> itemList = new ArrayList<>();
-        items.forEach((key, value) -> {
-            itemList.add(value);
-        });
+        items.forEach((key, value) -> itemList.add(value));
         return itemList;
     }
 

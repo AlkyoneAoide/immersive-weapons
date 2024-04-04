@@ -29,9 +29,7 @@ public class ImmersiveWeaponsBlocks {
 
     public static ArrayList<Block> getBlocks() {
         ArrayList<Block> blockList = new ArrayList<>();
-        blocks.forEach((key, value) -> {
-            blockList.add(value);
-        });
+        blocks.forEach((key, value) -> blockList.add(value));
         return blockList;
     }
 
