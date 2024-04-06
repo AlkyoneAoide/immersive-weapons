@@ -3,7 +3,7 @@
   "ingredient": {
     "item": "minecraft:soul_sand"
   },
-  "result": "immersive-weapons:soul_vitric",
+  "result": "immersive-weapons:soul_glass",
   "experience": 0.5,
   "cookingtime": 200
 }

@@ -24,9 +24,9 @@ public class ImmersiveWeaponsItems {
 	public static void register() {
 		// Blocks, then items (represents the same order that's in the creative menu tab
 		// Block items:
-		items.put("soul_vitric", Registry.register(Registries.ITEM,
-				new Identifier(MOD_ID, "soul_vitric"),
-				new BlockItem(ImmersiveWeaponsBlocks.getBlock("soul_vitric"), new FabricItemSettings())));
+		items.put("soul_glass", Registry.register(Registries.ITEM,
+				new Identifier(MOD_ID, "soul_glass"),
+				new BlockItem(ImmersiveWeaponsBlocks.getBlock("soul_glass"), new FabricItemSettings())));
 
 		// Items:
 		items.put("copper_battleaxe", Registry.register(Registries.ITEM,

@@ -9,8 +9,9 @@ import net.minecraft.client.render.RenderLayer;
 
 @Environment(EnvType.CLIENT)
 public class ImmersiveWeaponsClient implements ClientModInitializer {
-    @Override
-    public void onInitializeClient() {
-        BlockRenderLayerMap.INSTANCE.putBlock(ImmersiveWeaponsBlocks.getBlock("soul_vitric"), RenderLayer.getTranslucent());
-    }
+	@Override
+	public void onInitializeClient() {
+		BlockRenderLayerMap.INSTANCE.putBlock(ImmersiveWeaponsBlocks.getBlock("soul_glass"),
+				RenderLayer.getTranslucent());
+	}
 }

@@ -1,6 +1,6 @@
 package gg.rosie.registry;
 
-import gg.rosie.blocks.Soul_Vitric;
+import gg.rosie.blocks.Soul_Glass;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -19,14 +19,14 @@ public class ImmersiveWeaponsBlocks {
 	// .strength() is hardness, resistance (or just hardness if only one arg)
 	// hardnesses: https://minecraft.wiki/w/Breaking#Blocks_by_hardness
 	// resistances: https://minecraft.wiki/w/Explosion#Blast_resistance
-	// for example soul vitric at 0.3, 6 has the breaking time of glass but the
+	// for example soul glass at 0.3, 6 has the breaking time of glass but the
 	// blast resistance of cobblestone
 	// also, don't think blocks and their corresponding items *have* to have the
 	// same id but it is good practice
 	public static void register() {
-		blocks.put("soul_vitric", Registry.register(Registries.BLOCK,
-				new Identifier(MOD_ID, "soul_vitric"),
-				new Soul_Vitric(FabricBlockSettings.copyOf(Blocks.GLASS).strength(0.3f, 6f).nonOpaque())));
+		blocks.put("soul_glass", Registry.register(Registries.BLOCK,
+				new Identifier(MOD_ID, "soul_glass"),
+				new Soul_Glass(FabricBlockSettings.copyOf(Blocks.GLASS).strength(0.3f, 6f).nonOpaque())));
 	}
 
 	public static ArrayList<Block> getBlocks() {
