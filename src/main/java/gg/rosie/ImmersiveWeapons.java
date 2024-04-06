@@ -1,6 +1,7 @@
 package gg.rosie;
 
 import gg.rosie.registry.ImmersiveWeaponsItems;
+import gg.rosie.registry.ImmersiveWeaponsBlocks;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
@@ -26,6 +27,10 @@ public class ImmersiveWeapons implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		// Register blocks and then items (some items depend on blocks)
+		ImmersiveWeaponsBlocks.register();
+		ImmersiveWeaponsItems.register();
+
 		// Register item group when the game is loaded
 		Registry.register(Registries.ITEM_GROUP, new Identifier("immersive-weapons", "weapons"), WEAPON_GROUP);
 	}
