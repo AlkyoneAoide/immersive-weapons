@@ -4,7 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockRenderType;
 
-public class Soul_Glass extends Block implements IBeaconBeamColorProvider {
+public class Soul_Glass extends Block {
 	public Soul_Glass(Settings settings) {
 		super(settings);
 	}
