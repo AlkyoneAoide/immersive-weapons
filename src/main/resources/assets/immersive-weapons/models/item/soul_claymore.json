@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "immersive-weapons:item/soul_claymore"
+    "layer0": "immersive-weapons:item/soul_claymore_stage_1"
   }
 }
