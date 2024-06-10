@@ -6,6 +6,7 @@
   - Fixed itself?????
 - [ ] oxidization textures for copper battleaxe based on damage
 - [ ] make soul glass transparent from all but front face when looking through
+- [ ] item tooltips
 ### later
 - [ ] bee master broadsword
 - [ ] staff of the sea
