@@ -6,6 +6,9 @@ import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -22,18 +25,20 @@ public class Soul_Claymore extends SwordItem {
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         boolean result = super.postHit(stack, target, attacker);
-        playBreakSound(stack.getDamage() / stack.getMaxDamage());
+        playBreakSound(stack.getDamage() / stack.getMaxDamage(), attacker);
         return result;
     }
 
     @Override
     public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
         boolean result = super.postMine(stack, world, state, pos, miner);
-        playBreakSound(stack.getDamage() / stack.getMaxDamage());
+        playBreakSound(stack.getDamage() / stack.getMaxDamage(), miner);
         return result;
     }
 
-    private void playBreakSound(int damagePercent) {
-        //sound code here
+    private void playBreakSound(int damagePercent, LivingEntity player) {
+        if(damagePercent == 25 || damagePercent == 50 || damagePercent == 75)
+            if(!player.getWorld().isClient)
+                player.getWorld().playSound(null, player.getBlockPos(), SoundEvents.BLOCK_GLASS_BREAK, SoundCategory.BLOCKS, 1, 1);
     }
 }

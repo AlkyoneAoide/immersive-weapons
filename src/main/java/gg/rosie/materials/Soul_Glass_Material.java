@@ -7,7 +7,7 @@ import net.minecraft.recipe.Ingredient;
 public class Soul_Glass_Material implements ToolMaterial {
     @Override
     public int getDurability() {
-        return 1000;
+        return 50;
     }
 
     @Override
