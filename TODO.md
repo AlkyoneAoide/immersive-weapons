@@ -1,11 +1,11 @@
 ## TODO
 ### now
-- [ ] sound effects for soul claymore stages and break
+- [x] sound effects for soul claymore stages and break
 - [ ] soul claymore ability
 - [x] beacon light blocked from soul glass bug
   - Fixed itself?????
 - [ ] oxidization textures for copper battleaxe based on damage
-- [ ] make soul glass transparent from all but front face when looking through
+- [x] make soul glass transparent from all but front face when looking through
 - [ ] item tooltips
 ### later
 - [ ] bee master broadsword

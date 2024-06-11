@@ -26,7 +26,7 @@ public class ImmersiveWeaponsBlocks {
 	public static void register() {
 		blocks.put("soul_glass", Registry.register(Registries.BLOCK,
 				new Identifier(MOD_ID, "soul_glass"),
-				new Soul_Glass(FabricBlockSettings.copyOf(Blocks.GLASS).strength(0.3f, 6f).nonOpaque())));
+				new Soul_Glass(FabricBlockSettings.copy(Blocks.GLASS).strength(0.3f, 6f).nonOpaque())));
 	}
 
 	public static ArrayList<Block> getBlocks() {
