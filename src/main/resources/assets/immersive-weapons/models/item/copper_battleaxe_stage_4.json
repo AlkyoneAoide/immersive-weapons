@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "immersive-weapons:item/copper_battleaxe_stage_4"
+  }
+}
