@@ -7,7 +7,6 @@ import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -39,7 +38,7 @@ public class Soul_Claymore extends SwordItem {
 
     private void playBreakSound(float damage, int maxDamage, LivingEntity player) {
         float damagePercent = (((maxDamage - damage) / maxDamage) * 100);
-        if(damagePercent % 25 == 0 ||
+        if(damagePercent % 25 == 0 || Float.isNaN(damagePercent) ||
                 (previousDamagePercent > 75 && damagePercent < 75) ||
                 (previousDamagePercent > 50 && damagePercent < 50) ||
                 (previousDamagePercent > 25 && damagePercent < 25))
