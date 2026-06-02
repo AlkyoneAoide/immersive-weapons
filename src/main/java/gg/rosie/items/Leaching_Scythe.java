@@ -33,6 +33,10 @@ public class Leaching_Scythe extends HoeItem {
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         boolean result = super.postHit(stack, target, attacker);
 
+        if (attacker == null) {
+            return result;
+        }
+
         if (attacker.getWorld().isNight() &&
                 !target.isAlive() &&
                 PlayerEntity.class.isAssignableFrom(target.getClass()) &&

@@ -28,6 +28,10 @@ public class Soul_Claymore extends SwordItem {
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         boolean result = super.postHit(stack, target, attacker);
 
+        if (attacker != null) {
+            return result;
+        }
+
 		// TODO: sometime, maybe turn this into soul fire if we feel like it
 		target.setOnFireFor(2);
 
