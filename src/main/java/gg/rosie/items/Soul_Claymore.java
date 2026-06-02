@@ -9,7 +9,9 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.Hand;
 import net.minecraft.world.World;
+import net.minecraft.entity.EquipmentSlot;
 
 import java.util.Random;
 
@@ -25,6 +27,33 @@ public class Soul_Claymore extends SwordItem {
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         boolean result = super.postHit(stack, target, attacker);
+
+		// TODO: sometime, maybe turn this into soul fire if we feel like it
+		target.setOnFireFor(2);
+
+		// Kill the soul claymore based on durability
+		float durability = ((float)stack.getMaxDamage() - stack.getDamage()) / stack.getMaxDamage();
+
+		Hand itemHand = Hand.MAIN_HAND;
+		if (!ItemStack.areItemsEqual(stack, attacker.getMainHandStack())) {
+			itemHand = Hand.OFF_HAND;
+		}
+		final Hand hand = itemHand;
+
+		if (durability <= 0.25) {
+			stack.damage(3, attacker, (e) -> {e.sendToolBreakStatus(hand);});
+		} else if (durability <= 0.5) {
+			stack.damage(2, attacker, (e) -> {e.sendToolBreakStatus(hand);});
+		} else if (durability <= 0.75) {
+			stack.damage(1, attacker, (e) -> {e.sendToolBreakStatus(hand);});
+		}
+
+		System.out.println(stack.getAttributeModifiers(EquipmentSlot.MAINHAND));
+		// change attack damage based on durability
+		// TODO: add attribute modifier to multiply attack damage by 1.25 for each stage
+		// EntityAttributeInstance attackDamageModifier = stack.getAttributeInstance(EntityAttributes.GENERIC_ATTACK_DAMAGE)
+		// stack.addAttributeModifier(EntityAttributes.GENERIC_ATTACK_DAMAGE, getAttackDamage * 1.25);
+
         playBreakSound(stack.getDamage(), stack.getMaxDamage(), attacker);
         return result;
     }
