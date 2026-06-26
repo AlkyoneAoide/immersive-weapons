@@ -21,21 +21,19 @@ public class Copper_Battleaxe extends AxeItem {
 	public Copper_Battleaxe(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
 		super(material, attackDamage, attackSpeed, settings);
 		DamageHelper.ItemCrits.add("immersive-weapons:copper_battleaxe", (source, amount, attacker, target) -> {
-			if (attacker == null || target == null) {
-				return;
-			}
+			if (attacker != null && target != null) {
+				if (attacker.getWorld().isRaining()) {
+					if (RANDOM.nextInt(10) < 4) {
+						World targetWorld = target.getWorld();
 
-			if (attacker.getWorld().isRaining()) {
-				if (RANDOM.nextInt(10) < 4) {
-					World targetWorld = target.getWorld();
+						int x = target.getBlockX();
+						int y = target.getBlockY();
+						int z = target.getBlockZ();
 
-					int x = target.getBlockX();
-					int y = target.getBlockY();
-					int z = target.getBlockZ();
-
-					LightningEntity bolt = new LightningEntity(EntityType.LIGHTNING_BOLT, targetWorld);
-					bolt.setPos(x, y, z);
-					targetWorld.spawnEntity(bolt);
+						LightningEntity bolt = new LightningEntity(EntityType.LIGHTNING_BOLT, targetWorld);
+						bolt.setPos(x, y, z);
+						targetWorld.spawnEntity(bolt);
+					}
 				}
 			}
 		});
