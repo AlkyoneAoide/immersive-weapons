@@ -17,7 +17,7 @@ public class Copper_Material implements ToolMaterial {
 
 	@Override
 	public float getAttackDamage() {
-		return 5.0f;
+		return 2.0f;
 	}
 
 	@Override

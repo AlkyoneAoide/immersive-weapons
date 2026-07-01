@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " H ",
+    " B ",
+    " S "
+  ],
+  "key": {
+    "H" : {
+      "item": "minecraft:honey_block"
+    },
+    "B": {
+      "item": "minecraft:bee_nest"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "immersive-weapons:bee_master_broadsword",
+    "count": 1
+  }
+}

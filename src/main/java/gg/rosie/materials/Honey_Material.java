@@ -4,16 +4,14 @@ import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
-public class Soul_Glass_Material implements ToolMaterial {
+public class Honey_Material implements ToolMaterial {
     @Override
     public int getDurability() {
-        return 50;
+        return 75;
     }
 
     @Override
-    public float getMiningSpeedMultiplier() {
-        return 5.0f;
-    }
+    public float getMiningSpeedMultiplier() { return 3.0f; }
 
     @Override
     public float getAttackDamage() {
@@ -27,13 +25,13 @@ public class Soul_Glass_Material implements ToolMaterial {
 
     @Override
     public int getEnchantability() {
-        return 20;
+        return 15;
     }
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.empty();
+        return Ingredient.ofItems(Items.HONEYCOMB);
     }
 
-    public static final Soul_Glass_Material INSTANCE = new Soul_Glass_Material();
+    public static final Honey_Material INSTANCE = new Honey_Material();
 }

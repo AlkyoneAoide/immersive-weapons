@@ -21,9 +21,7 @@ public class Nether_Star_Material implements ToolMaterial {
     }
 
     @Override
-    public int getMiningLevel() {
-        return 4;
-    }
+    public int getMiningLevel() { return 4; }
 
     @Override
     public int getEnchantability() {

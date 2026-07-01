@@ -7,12 +7,13 @@
 - [x] make soul glass transparent from all but front face when looking through
 - [ ] register recipes to recipe book
 ### later
-- [ ] bee master broadsword
+- [ ] bee master broadsword (texture transparency and abilities)
 - [ ] staff of the sea
 - [ ] mechanical crossbow
 - [ ] mystical bow
 - [ ] grappling hook
 - [ ] item tooltips
+- [ ] review all material and base modifiers
 
 ## Immersive Weapons (Fabric) Weapon ideas:
 

@@ -1,9 +1,11 @@
 package gg.rosie.registry;
 
+import gg.rosie.items.Bee_Master_Broadsword;
 import gg.rosie.items.Copper_Battleaxe;
 import gg.rosie.items.Leaching_Scythe;
 import gg.rosie.items.Soul_Claymore;
 import gg.rosie.materials.Copper_Material;
+import gg.rosie.materials.Honey_Material;
 import gg.rosie.materials.Nether_Star_Material;
 import gg.rosie.materials.Soul_Glass_Material;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -31,7 +33,7 @@ public class ImmersiveWeaponsItems {
 		// Items:
 		items.put("copper_battleaxe", Registry.register(Registries.ITEM,
 				new Identifier(MOD_ID, "copper_battleaxe"),
-				new Copper_Battleaxe(Copper_Material.INSTANCE, 2, -3.2f, new FabricItemSettings().maxCount(1))));
+				new Copper_Battleaxe(Copper_Material.INSTANCE, 6, -3.0f, new FabricItemSettings().maxCount(1))));
 
 		items.put("leaching_scythe", Registry.register(Registries.ITEM,
 				new Identifier(MOD_ID, "leaching_scythe"),
@@ -40,6 +42,10 @@ public class ImmersiveWeaponsItems {
 		items.put("soul_claymore", Registry.register(Registries.ITEM,
 				new Identifier(MOD_ID, "soul_claymore"),
 				new Soul_Claymore(Soul_Glass_Material.INSTANCE, 0, -1.0f, new FabricItemSettings().maxCount(1))));
+
+		items.put("bee_master_broadsword", Registry.register(Registries.ITEM,
+				new Identifier(MOD_ID, "bee_master_broadsword"),
+				new Bee_Master_Broadsword(Honey_Material.INSTANCE, 0, -1.0f, new FabricItemSettings().maxCount(1))));
 	}
 
 	public static ArrayList<Item> getItems() {
